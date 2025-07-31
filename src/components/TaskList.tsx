@@ -1,27 +1,40 @@
 import Task from './Task';
+import { updateTaskState } from '../lib/store';
+import { useAppDispatch, useAppSelector } from '../lib/hooks';
+import type { Task as TaskType } from '../lib/store';
 
-export interface TaskListProps {
-  tasks: {
-    id: string;
-    title: string;
-    state: 'TASK_INBOX' | 'TASK_PINNED' | 'TASK_ARCHIVED';
-  }[];
-  loading: boolean;
-  onArchiveTask: (id: string) => void;
-  onUnArchiveTask: (id: string) => void;
-  onPinTask: (id: string) => void;
-}
-export default function TaskList({
-  tasks,
-  loading,
-  onArchiveTask,
-  onUnArchiveTask,
-  onPinTask,
-}: TaskListProps) {
-  const events = {
-    onArchiveTask: (id: string) => onArchiveTask(id),
-    onUnArchiveTask: (id: string) => onUnArchiveTask(id),
-    onPinTask: (id: string) => onPinTask(id),
+export default function TaskList() {
+  // We're retrieving our state from the store
+  const tasks = useAppSelector((state) => {
+    const tasksInOrder = [
+      ...state.taskbox.tasks.filter((t: TaskType) => t.state === 'TASK_PINNED'),
+      ...state.taskbox.tasks.filter((t: TaskType) => t.state !== 'TASK_PINNED'),
+    ];
+    const filteredTasks = [
+      ...tasksInOrder.filter(
+        (t: TaskType) => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED'
+      ),
+      ...tasksInOrder.filter((t: TaskType) => t.state === 'TASK_ARCHIVED'),
+    ];
+    return filteredTasks;
+  });
+
+  const { status } = useAppSelector((state) => state.taskbox);
+
+  const dispatch = useAppDispatch();
+
+  const pinTask = (value: string) => {
+    // We're dispatching the Pinned event back to our store
+    dispatch(updateTaskState({ id: value, newTaskState: 'TASK_PINNED' }));
+  };
+  const archiveTask = (value: string) => {
+    // We're dispatching the Archive event back to our store
+    dispatch(updateTaskState({ id: value, newTaskState: 'TASK_ARCHIVED' }));
+  };
+
+  const unArchiveTask = (value: string) => {
+    // We're dispatching the Archive event back to our store
+    dispatch(updateTaskState({ id: value, newTaskState: 'TASK_INBOX' }));
   };
 
   const LoadingRow = (
@@ -32,8 +45,7 @@ export default function TaskList({
       </span>
     </div>
   );
-
-  if (loading) {
+  if (status === 'loading') {
     return (
       <div className='list-items' data-testid='loading' key={'loading'}>
         {LoadingRow}
@@ -44,7 +56,8 @@ export default function TaskList({
         {LoadingRow}
       </div>
     );
-  } else if (tasks.length === 0) {
+  }
+  if (tasks.length === 0) {
     return (
       <div className='list-items' key={'empty'} data-testid='empty'>
         <div className='wrapper-message'>
@@ -54,24 +67,19 @@ export default function TaskList({
         </div>
       </div>
     );
-  } else if (tasks.length > 0) {
-    const tasksInOrder = [
-      ...tasks.filter((t) => t.state === 'TASK_PINNED'),
-      ...tasks.filter((t) => t.state !== 'TASK_PINNED'),
-    ];
-
-    return (
-      <div className='list-items'>
-        {tasksInOrder.map((task) => (
-          <Task
-            key={task.id}
-            task={task}
-            onArchiveTask={events.onArchiveTask}
-            onUnArchiveTask={() => {}}
-            onPinTask={events.onPinTask}
-          />
-        ))}
-      </div>
-    );
   }
+
+  return (
+    <div className='list-items' data-testid='success' key={'success'}>
+      {tasks.map((task: TaskType) => (
+        <Task
+          key={task.id}
+          task={task}
+          onPinTask={(task: string) => pinTask(task)}
+          onArchiveTask={(task: string) => archiveTask(task)}
+          onUnArchiveTask={(task: string) => unArchiveTask(task)}
+        />
+      ))}
+    </div>
+  );
 }

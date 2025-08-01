@@ -1,14 +1,58 @@
-<p align="center">
-  <a href="https://www.chromatic.com/">
-    <img alt="Chromatic" src="https://avatars2.githubusercontent.com/u/24584319?s=200&v=4" width="60" />
-  </a>
-</p>
+# Storybox - Component-Driven Development with Storybook
 
-<h1 align="center">
-  Chromatic's Intro to Storybook React template
-</h1>
+A comprehensive demonstration of **Component-Driven Development (CDD)** using Storybook, showcasing modern React development practices with accessibility-first design, comprehensive testing, and cross-browser compatibility.
 
-This template ships with the main React and Storybook configuration files you'll need to get up and running fast.
+## 🎯 Project Overview
+
+This project demonstrates the power of **Component-Driven Development** by building a task management application from the ground up using isolated, tested, and documented components. It showcases how Storybook enables teams to build robust UIs with confidence.
+
+### What This Project Demonstrates
+
+**🧩 Component-Driven Development (CDD)**
+
+- Build components in isolation before integrating into pages
+- Develop UI components outside the context of business logic
+- Create a comprehensive component library with documentation
+- Enable parallel development between frontend and backend teams
+
+**♿ Accessibility-First Development**
+
+- Built-in accessibility testing with Storybook's a11y addon
+- ARIA labels and semantic HTML structure
+- Keyboard navigation support
+- Screen reader compatibility
+- Color contrast validation
+
+**🔧 Modern Development Practices**
+
+- TypeScript for type safety and better developer experience
+- Redux Toolkit for predictable state management
+- Mock Service Worker (MSW) for API mocking and testing
+- Cross-browser compatibility (Chrome, Safari, Firefox)
+- Comprehensive testing strategies
+
+## � Features Implemented
+
+### Core Components
+
+- **Task Component**: Individual task items with state management (inbox, pinned, archived)
+- **TaskList Component**: Collection of tasks with loading and empty states
+- **InboxScreen Component**: Full page component integrating Redux store and API calls
+
+### Storybook Integration
+
+- **Comprehensive Stories**: Each component has multiple stories showcasing different states
+- **Interactive Controls**: Storybook controls for dynamic component testing
+- **Documentation**: Auto-generated docs with component props and usage examples
+- **Accessibility Testing**: Built-in a11y addon for accessibility validation
+
+### Advanced Features
+
+- **Mock Service Worker (MSW)**: API mocking for development and testing
+- **Redux Integration**: State management with Redux Toolkit
+- **TypeScript**: Full type safety across the application
+- **Cross-browser Support**: Tested and working in Chrome, Safari, and Firefox
+- **Responsive Design**: Components work across different screen sizes
 
 ## 🚅 Quick start
 
@@ -33,13 +77,81 @@ This template ships with the main React and Storybook configuration files you'll
     yarn
     ```
 
-1.  **Open the source code and start editing!**
+1.  **Start the development server**
 
-    Open the `taskbox` directory in your code editor of choice and building your first component!
+    ```shell
+    # Start the main application
+    npm run dev
+    # or
+    yarn dev
+    ```
 
 1.  **Browse your stories!**
 
-    Run `yarn storybook` to see your component's stories at `http://localhost:6006`
+    Run `npm run storybook` to see your component's stories at `http://localhost:6006`
+
+## 🎯 Component-Driven Development Benefits
+
+### Why CDD with Storybook?
+
+**🔧 Isolated Development**
+
+- Build components in isolation without worrying about app-specific dependencies
+- Focus on component API design and reusability
+- Catch edge cases early by testing components in various states
+
+**📚 Living Documentation**
+
+- Auto-generated documentation that stays in sync with code
+- Interactive examples that designers and stakeholders can review
+- Component API documentation with TypeScript integration
+
+**🧪 Enhanced Testing**
+
+- Visual regression testing capabilities
+- Accessibility testing built into the development workflow
+- Easy testing of component states and edge cases
+
+**👥 Team Collaboration**
+
+- Shared component library that entire team can reference
+- Design system consistency across the application
+- Parallel development between frontend and backend teams
+
+## ♿ Accessibility-First Development
+
+### Built-in Accessibility Features
+
+**🔍 Automated Testing**
+
+- Storybook a11y addon automatically checks for accessibility violations
+- Real-time feedback during development
+- WCAG 2.1 compliance validation
+
+**⌨️ Keyboard Navigation**
+
+- Full keyboard accessibility for all interactive elements
+- Proper focus management and tab order
+- Screen reader compatibility
+
+**🎨 Visual Accessibility**
+
+- Color contrast validation
+- Support for high contrast modes
+- Scalable text and responsive design
+
+**🏷️ Semantic HTML**
+
+- Proper ARIA labels and roles
+- Semantic HTML structure
+- Meaningful alt text for images
+
+### Accessibility Testing Workflow
+
+1. **Development**: a11y addon provides real-time feedback
+2. **Review**: Accessibility violations are highlighted in Storybook
+3. **Testing**: Manual testing with screen readers and keyboard navigation
+4. **Documentation**: Accessibility considerations documented in stories
 
 ## 🔎 What's inside?
 
@@ -104,8 +216,67 @@ A quick look at the top-level files and directories included with this template.
 
 If you encounter an issue with the template, we encourage you to open an issue in this template's repository.
 
-## Learning Storybook
+## 🛠️ Development Scripts
 
-1. Read our introductory tutorial at [Learn Storybook](https://storybook.js.org/tutorials/intro-to-storybook/react/en/get-started/).
-2. Learn how to transform your component libraries into design systems in our [Design Systems for Developers](https://storybook.js.org/tutorials/design-systems-for-developers/) tutorial.
-3. See our official documentation at [Storybook](https://storybook.js.org/).
+```bash
+# Start development server
+npm run dev
+
+# Launch Storybook
+npm run storybook
+
+# Build for production
+npm run build
+
+# Build Storybook for deployment
+npm run build-storybook
+
+# Run tests
+npm run test-storybook
+
+# Initialize MSW (if needed)
+npm run init-msw
+```
+
+## 🧪 Testing Strategy
+
+This project demonstrates multiple testing approaches:
+
+- **Visual Testing**: Storybook stories serve as visual tests
+- **Accessibility Testing**: Built-in a11y addon catches accessibility issues
+- **Interaction Testing**: Storybook interactions test user workflows
+- **API Mocking**: MSW provides consistent API responses for testing
+
+## 📚 Learning Resources
+
+### Component-Driven Development
+
+1. [Component-Driven Development](https://www.componentdriven.org/) - Official CDD methodology
+2. [Storybook Tutorial](https://storybook.js.org/tutorials/intro-to-storybook/react/en/get-started/) - Learn Storybook fundamentals
+3. [Design Systems for Developers](https://storybook.js.org/tutorials/design-systems-for-developers/) - Building design systems
+
+### Accessibility
+
+1. [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/WCAG21/quickref/) - Accessibility standards
+2. [Storybook a11y addon](https://storybook.js.org/addons/@storybook/addon-a11y) - Accessibility testing in Storybook
+3. [WebAIM](https://webaim.org/) - Web accessibility resources
+
+### Modern React Development
+
+1. [Redux Toolkit](https://redux-toolkit.js.org/) - Modern Redux patterns
+2. [Mock Service Worker](https://mswjs.io/) - API mocking for development and testing
+3. [TypeScript](https://www.typescriptlang.org/) - Type safety in JavaScript
+
+## 🤝 Contributing
+
+This project serves as a demonstration of best practices. Feel free to:
+
+- Explore the component stories in Storybook
+- Examine the accessibility features and testing
+- Study the MSW integration for API mocking
+- Review the TypeScript implementation
+- Understand the Redux Toolkit patterns
+
+## 📄 License
+
+This project is licensed under the MIT License - see the original template license for details.

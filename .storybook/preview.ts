@@ -6,7 +6,7 @@ import { initialize, mswDecorator } from 'msw-storybook-addon';
 
 // Initialize MSW with Safari-compatible options
 initialize({
-  onUnhandledRequest: 'bypass',
+  onUnhandledRequest: 'warn',
   serviceWorker: {
     url: './mockServiceWorker.js',
     options: {

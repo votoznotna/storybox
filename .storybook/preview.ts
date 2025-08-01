@@ -4,8 +4,16 @@ import '../src/index.css';
 // Registers the msw addon
 import { initialize, mswDecorator } from 'msw-storybook-addon';
 
-// Initialize MSW
-initialize();
+// Initialize MSW with Safari-compatible options
+initialize({
+  onUnhandledRequest: 'bypass',
+  serviceWorker: {
+    url: './mockServiceWorker.js',
+    options: {
+      scope: '/',
+    },
+  },
+});
 
 const preview: Preview = {
   decorators: [mswDecorator],

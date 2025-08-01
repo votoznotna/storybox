@@ -24,9 +24,19 @@ export const Default: Story = {
         http.get('https://jsonplaceholder.typicode.com/todos', ({ request }) => {
           const url = new URL(request.url);
           if (url.searchParams.get('userId') === '1') {
-            return HttpResponse.json(MockedState.tasks);
+            return HttpResponse.json(MockedState.tasks, {
+              headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+              },
+            });
           }
-          return HttpResponse.json([]);
+          return HttpResponse.json([], {
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+              'Content-Type': 'application/json',
+            },
+          });
         }),
       ],
     },
@@ -50,7 +60,12 @@ export const Error: Story = {
     msw: {
       handlers: [
         http.get('https://jsonplaceholder.typicode.com/todos', () => {
-          return new HttpResponse(null, { status: 403 });
+          return new HttpResponse(null, {
+            status: 403,
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+            },
+          });
         }),
       ],
     },

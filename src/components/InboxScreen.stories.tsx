@@ -1,12 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { http, HttpResponse } from 'msw';
 import { Provider } from 'react-redux';
-import {
-  fireEvent,
-  within,
-  waitFor,
-  waitForElementToBeRemoved,
-} from '@storybook/test';
+import { fireEvent, within, waitFor, waitForElementToBeRemoved } from '@storybook/test';
 import InboxScreen from './InboxScreen';
 import store from '../lib/store';
 import { MockedState } from './TaskList.stories';
@@ -26,8 +21,12 @@ export const Default: Story = {
     msw: {
       // This WILL work - addon recognizes it
       handlers: [
-        http.get('https://jsonplaceholder.typicode.com/todos', () => {
-          return HttpResponse.json(MockedState.tasks);
+        http.get('https://jsonplaceholder.typicode.com/todos', ({ request }) => {
+          const url = new URL(request.url);
+          if (url.searchParams.get('userId') === '1') {
+            return HttpResponse.json(MockedState.tasks);
+          }
+          return HttpResponse.json([]);
         }),
       ],
     },

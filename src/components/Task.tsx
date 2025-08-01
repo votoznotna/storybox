@@ -16,18 +16,6 @@ export default function Task({
   onPinTask,
 }: TaskProps) {
   return (
-    // <div className={`list-item `}>
-    //   <label htmlFor='checked' aria-label={title}>
-    //     <input
-    //       type='text'
-    //       value={title}
-    //       readOnly={true}
-    //       name='title'
-    //       placeholder='Input title'
-    //       style={{ textOverflow: 'ellipsis' }}
-    //     />
-    //   </label>
-    // </div>
     <div className={`list-item ${state}`}>
       <label
         htmlFor='checked'

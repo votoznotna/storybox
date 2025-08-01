@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unicode Icon Test</title>
+    <style>
+      @font-face {
+        font-family: 'percolate';
+        src: url('./src/assets/icon/percolate.ttf') format('truetype');
+      }
+
+      .icon-test {
+        font-family: 'percolate';
+        font-size: 48px;
+        margin: 20px;
+        display: inline-block;
+      }
+
+      .test-item {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+        font-size: 18px;
+      }
+
+      .unicode-code {
+        font-family: monospace;
+        background: #f0f0f0;
+        padding: 5px;
+        margin: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Unicode Icons from Percolate Font</h1>
+
+    <div class="test-item">
+      <span class="icon-test">&#xe608;</span>
+      <span class="unicode-code">\e608</span>
+      <span>Star icon</span>
+    </div>
+
+    <div class="test-item">
+      <span class="icon-test">&#xe60f;</span>
+      <span class="unicode-code">\e60f</span>
+      <span>Sad face icon</span>
+    </div>
+
+    <div class="test-item">
+      <span class="icon-test">&#xe65e;</span>
+      <span class="unicode-code">\e65e</span>
+      <span>Check mark icon</span>
+    </div>
+  </body>
+</html>

@@ -56,32 +56,54 @@ This project demonstrates the power of **Component-Driven Development** by build
 - **Cross-browser Support**: Tested and working in Chrome, Safari, and Firefox
 - **Responsive Design**: Components work across different screen sizes
 
-## � Prerkequisites
+## � Prerequisites
 
-This project uses **Yarn** as the package manager. If you don't have Yarn installed:
+This project uses **Yarn 4.5.0** as the package manager, managed through **Corepack** (the recommended approach for modern Yarn).
 
-### Install Yarn
+### Install Yarn 4.5.0 using Corepack
 
-**macOS (using Homebrew):**
+**Prerequisites:** Node.js 16.10+ (Corepack is included with Node.js)
 
-```bash
-brew install yarn
-```
-
-**Windows (using Chocolatey):**
+**1. Enable Corepack (if not already enabled):**
 
 ```bash
-choco install yarn
+corepack enable
 ```
 
-**Linux (using npm):**
+**2. The project will automatically use Yarn 4.5.0** when you run yarn commands (configured in `package.json`)
+
+**If Corepack is not available on your system:**
+
+**macOS/Linux:**
 
 ```bash
-npm install -g yarn
+# Update Node.js to 16.10+ (includes Corepack)
+# Using nvm (recommended)
+nvm install --lts
+nvm use --lts
+
+# Or install Corepack separately if needed
+npm install -g corepack
+corepack enable
 ```
 
-**Alternative installation methods:**
-Visit [Yarn Installation Guide](https://yarnpkg.com/getting-started/install) for more options.
+**Windows:**
+
+```bash
+# Update Node.js to 16.10+ from nodejs.org
+# Or install Corepack separately if needed
+npm install -g corepack
+corepack enable
+```
+
+**Why Corepack?**
+
+- **Automatic version management**: No need to manually install/update Yarn
+- **Project-specific versions**: Each project uses its specified Yarn version
+- **Zero global installs**: Yarn is managed per-project
+- **Official recommendation**: This is the modern way to use Yarn v4+
+
+**Learn more:** [Corepack Documentation](https://nodejs.org/api/corepack.html)
 
 ## 🚅 Quick start
 

@@ -1,5 +1,7 @@
 # Storybox - Component-Driven Development with Storybook
 
+![Storybox Demo](storybox-demo.gif)
+
 A comprehensive demonstration of **Component-Driven Development (CDD)** using Storybook, showcasing modern React development practices with accessibility-first design, comprehensive testing, and cross-browser compatibility.
 
 ## 🎯 Project Overview
@@ -54,41 +56,64 @@ This project demonstrates the power of **Component-Driven Development** by build
 - **Cross-browser Support**: Tested and working in Chrome, Safari, and Firefox
 - **Responsive Design**: Components work across different screen sizes
 
+## � Prerkequisites
+
+This project uses **Yarn** as the package manager. If you don't have Yarn installed:
+
+### Install Yarn
+
+**macOS (using Homebrew):**
+
+```bash
+brew install yarn
+```
+
+**Windows (using Chocolatey):**
+
+```bash
+choco install yarn
+```
+
+**Linux (using npm):**
+
+```bash
+npm install -g yarn
+```
+
+**Alternative installation methods:**
+Visit [Yarn Installation Guide](https://yarnpkg.com/getting-started/install) for more options.
+
 ## 🚅 Quick start
 
-1.  **Create the application.**
-
-    Use [degit](https://github.com/Rich-Harris/degit) to get this template.
+1.  **Clone the repository**
 
     ```shell
-    # Clone the template
-    npx degit chromaui/intro-storybook-react-template taskbox
+    git clone https://github.com/votoznotna/storybox.git
+    cd storybox
     ```
 
-1.  **Install the dependencies.**
+1.  **Install dependencies**
 
     Navigate into your new site’s directory and install the necessary dependencies.
 
     ```shell
-    # Navigate to the directory
-    cd taskbox/
-
-    # Install the dependencies
-    yarn
+    yarn install
     ```
 
 1.  **Start the development server**
 
     ```shell
     # Start the main application
-    npm run dev
-    # or
     yarn dev
     ```
 
 1.  **Browse your stories!**
 
-    Run `npm run storybook` to see your component's stories at `http://localhost:6006`
+    Run `yarn storybook` to see your component's stories at `http://localhost:6006`
+
+1.  **View your application**
+    - Main app: `http://localhost:5173`
+    - Storybook: `http://localhost:6006`
 
 ## 🎯 Component-Driven Development Benefits
 
@@ -220,22 +245,22 @@ If you encounter an issue with the template, we encourage you to open an issue i
 
 ```bash
 # Start development server
-npm run dev
+yarn dev
 
 # Launch Storybook
-npm run storybook
+yarn storybook
 
 # Build for production
-npm run build
+yarn build
 
 # Build Storybook for deployment
-npm run build-storybook
+yarn build-storybook
 
 # Run tests
-npm run test-storybook
+yarn test-storybook
 
 # Initialize MSW (if needed)
-npm run init-msw
+yarn init-msw
 ```
 
 ## 🧪 Testing Strategy
